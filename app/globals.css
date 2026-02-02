@@ -104,3 +104,7 @@ h3 {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
+
+.a4-width {
+  max-width: 210mm;
+}

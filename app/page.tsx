@@ -42,7 +42,7 @@ export default function Home() {
         <aside className="hidden lg:block">
           <TableOfContents items={tocItems} />
         </aside>
-        <main className="paper" id="content" style={{ maxWidth: "210mm" }}>
+        <main className="paper a4-width" id="content">
           <h1 className="text-4xl font-semibold">Portfolio</h1>
           {sections.map((section) => (
             <section

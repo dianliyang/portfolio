@@ -16,10 +16,12 @@ test("uses the document font variables on body", () => {
   expect(body.props.className).toMatch(/font/);
 });
 
-test("hides the native scrollbar via body class", () => {
+test("hides the native scrollbar via html and body classes", () => {
   const element = RootLayout({ children: <Home /> });
   const body = element.props.children;
+  const htmlClassName = element.props.className ?? "";
   expect(body.props.className).toMatch(/no-scrollbar/);
+  expect(htmlClassName).toMatch(/no-scrollbar/);
 });
 
 test("renders a reading progress meter", () => {
@@ -41,7 +43,7 @@ test("renders multiple content sections with ids", () => {
 test("sets the content column to A4 width", () => {
   render(<Home />);
   const main = screen.getByRole("main");
-  expect(main).toHaveStyle({ maxWidth: "210mm" });
+  expect(main).toHaveClass("a4-width");
 });
 
 test("provides a skip link to main content", () => {
