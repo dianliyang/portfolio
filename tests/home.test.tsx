@@ -26,3 +26,11 @@ test("renders multiple content sections with ids", () => {
   const sections = screen.getAllByRole("region");
   expect(sections.length).toBeGreaterThan(2);
 });
+
+test("does not include dark mode styles", () => {
+  const style = document.createElement("style");
+  document.head.appendChild(style);
+  render(<Home />);
+  expect(document.styleSheets.length).toBeGreaterThan(0);
+  style.remove();
+});
