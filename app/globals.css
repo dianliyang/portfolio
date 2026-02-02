@@ -35,3 +35,27 @@ h3 {
   background: var(--ink);
   transition: height 120ms linear;
 }
+
+.toc {
+  position: sticky;
+  top: 6vh;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.toc-title {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  margin-bottom: 0.75rem;
+}
+
+.toc a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
