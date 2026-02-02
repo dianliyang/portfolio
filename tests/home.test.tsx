@@ -16,15 +16,38 @@ test("uses the document font variables on body", () => {
   expect(body.props.className).toMatch(/font/);
 });
 
+test("hides the native scrollbar via body class", () => {
+  const element = RootLayout({ children: <Home /> });
+  const body = element.props.children;
+  expect(body.props.className).toMatch(/no-scrollbar/);
+});
+
 test("renders a reading progress meter", () => {
   render(<Home />);
-  expect(screen.getByLabelText(/reading progress/i)).toBeInTheDocument();
+  const meter = screen.getByRole("progressbar", {
+    name: /reading progress/i,
+  });
+  expect(meter).toHaveAttribute("aria-valuemin", "0");
+  expect(meter).toHaveAttribute("aria-valuemax", "100");
+  expect(meter).toHaveAttribute("aria-valuenow");
 });
 
 test("renders multiple content sections with ids", () => {
   render(<Home />);
   const sections = screen.getAllByRole("region");
   expect(sections.length).toBeGreaterThan(2);
+});
+
+test("sets the content column to A4 width", () => {
+  render(<Home />);
+  const main = screen.getByRole("main");
+  expect(main).toHaveStyle({ maxWidth: "210mm" });
+});
+
+test("provides a skip link to main content", () => {
+  render(<Home />);
+  const skipLink = screen.getByRole("link", { name: /skip to content/i });
+  expect(skipLink).toHaveAttribute("href", "#content");
 });
 
 test("does not include dark mode styles", () => {

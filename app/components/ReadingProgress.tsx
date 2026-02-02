@@ -17,9 +17,18 @@ export default function ReadingProgress() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const percent = Math.round(progress * 100);
+
   return (
-    <div className="progress-rail" aria-label="Reading progress">
-      <div className="progress-fill" style={{ height: `${progress * 100}%` }} />
+    <div
+      className="progress-rail"
+      role="progressbar"
+      aria-label="Reading progress"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={percent}
+    >
+      <div className="progress-fill" style={{ height: `${percent}%` }} />
     </div>
   );
 }

@@ -23,8 +23,7 @@ const sections = [
   {
     id: "contact",
     title: "Contact",
-    body:
-      "For collaborations or inquiries: hello@example.com",
+    body: "For collaborations or inquiries: hello@example.com",
   },
 ];
 
@@ -36,11 +35,14 @@ const tocItems = sections.map((section) => ({
 export default function Home() {
   return (
     <div className="min-h-screen px-6 py-12">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_minmax(0,720px)_minmax(0,1fr)] gap-10">
+      <a className="skip-link" href="#content">
+        Skip to content
+      </a>
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_minmax(0,210mm)_minmax(0,1fr)] gap-10">
         <aside className="hidden lg:block">
           <TableOfContents items={tocItems} />
         </aside>
-        <main className="paper">
+        <main className="paper" id="content" style={{ maxWidth: "210mm" }}>
           <h1 className="text-4xl font-semibold">Portfolio</h1>
           {sections.map((section) => (
             <section

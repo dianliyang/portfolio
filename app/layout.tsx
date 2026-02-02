@@ -25,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${serif.variable} ${sans.variable} font-body antialiased`}>
+      <body
+        className={`${serif.variable} ${sans.variable} font-body no-scrollbar antialiased`}
+      >
         {children}
       </body>
     </html>
