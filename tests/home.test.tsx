@@ -15,3 +15,8 @@ test("uses the document font variables on body", () => {
   const body = element.props.children;
   expect(body.props.className).toMatch(/font/);
 });
+
+test("renders a reading progress meter", () => {
+  render(<Home />);
+  expect(screen.getByLabelText(/reading progress/i)).toBeInTheDocument();
+});

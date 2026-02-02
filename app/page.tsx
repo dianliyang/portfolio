@@ -1,3 +1,5 @@
+import ReadingProgress from "./components/ReadingProgress";
+
 export default function Home() {
   return (
     <div className="min-h-screen p-8">
@@ -9,6 +11,7 @@ export default function Home() {
           </ul>
         </nav>
       </main>
+      <ReadingProgress />
     </div>
   );
 }
