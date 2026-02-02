@@ -59,3 +59,19 @@ h3 {
 .toc a:hover {
   text-decoration: underline;
 }
+
+.paper {
+  border-left: 1px solid var(--hairline);
+  border-right: 1px solid var(--hairline);
+  padding: 4rem 3.5rem;
+  background: var(--paper);
+}
+
+.paper-section {
+  padding: 3.5rem 0;
+  border-bottom: 1px dashed var(--hairline);
+}
+
+.paper-section:last-child {
+  border-bottom: 0;
+}

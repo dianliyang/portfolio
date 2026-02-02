@@ -20,3 +20,9 @@ test("renders a reading progress meter", () => {
   render(<Home />);
   expect(screen.getByLabelText(/reading progress/i)).toBeInTheDocument();
 });
+
+test("renders multiple content sections with ids", () => {
+  render(<Home />);
+  const sections = screen.getAllByRole("region");
+  expect(sections.length).toBeGreaterThan(2);
+});
