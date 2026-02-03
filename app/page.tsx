@@ -1,5 +1,3 @@
-import ReadingProgress from "./components/ReadingProgress";
-import TableOfContents from "./components/TableOfContents";
 
 const sections = [
   {
@@ -27,22 +25,18 @@ const sections = [
   },
 ];
 
-const tocItems = sections.map((section) => ({
-  id: section.id,
-  label: section.title,
-}));
-
 export default function Home() {
   return (
-    <div className="min-h-screen px-6 py-12">
+    <div className="min-h-screen px-6 py-12 grid-background">
       <a className="skip-link" href="#content">
         Skip to content
       </a>
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_minmax(0,210mm)_minmax(0,1fr)] gap-10">
-        <aside className="hidden lg:block">
-          <TableOfContents items={tocItems} />
-        </aside>
-        <main className="paper a4-width" id="content">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_minmax(0,210mm)_minmax(0,1fr)] gap-6 max-md:grid-cols-1 max-md:gap-6">
+        <div className="max-md:hidden" aria-hidden="true" />
+        <main
+          className="paper a4-width mx-auto w-full"
+          id="content"
+        >
           <h1 className="text-4xl font-semibold">Portfolio</h1>
           {sections.map((section) => (
             <section
@@ -60,9 +54,7 @@ export default function Home() {
             </section>
           ))}
         </main>
-        <aside className="hidden lg:flex justify-end">
-          <ReadingProgress />
-        </aside>
+        <div className="max-md:hidden" aria-hidden="true" />
       </div>
     </div>
   );
